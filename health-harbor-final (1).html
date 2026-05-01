@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Harbor ⚓ | Free Health Guides in Simple English</title>
+    <meta name="description" content="Download 33 free health guides in plain English. Quick fixes, condition guides, food plans, mental health - all free from Health Harbor.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo svg {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-center a:hover {
+            color: #0d9488;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .btn-tiktok {
+            background: #000;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-tiktok:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: #0d9488;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #0f766e;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #374151;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.8rem;
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0d9488, #22c55e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.9rem 3rem 0.9rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #0d9488;
+            box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #9ca3af;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        .trust-badge span {
+            font-size: 1rem;
+        }
+
+        .wave-divider {
+            height: 30px;
+            background: linear-gradient(to bottom, transparent 50%, #f9fafb 50%);
+        }
+
+        /* Category Pills */
+        .category-pills {
+            max-width: 1400px;
+            margin: 2rem auto 1.5rem;
+            padding: 0 1rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .category-pills::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pills-row {
+            display: flex;
+            gap: 0.8rem;
+            min-width: min-content;
+        }
+
+        .pill {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #374151;
+        }
+
+        .pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Guide Sections */
+        .guide-section {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: currentColor;
+            opacity: 0.2;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .section-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .view-all {
+            color: currentColor;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.3s;
+            cursor: pointer;
+        }
+
+        .view-all:hover {
+            gap: 0.6rem;
+        }
+
+        /* Slider */
+        .slider-container {
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0.8rem 0;
+        }
+
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-size: 1.2rem;
+        }
+
+        .slider-arrow:hover {
+            background: #f9fafb;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.left {
+            left: -15px;
+        }
+
+        .slider-arrow.right {
+            right: -15px;
+        }
+
+        .slider-arrow.hidden {
+            display: none;
+        }
+
+        /* Guide Card */
+        .guide-card {
+            min-width: 300px;
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            position: relative;
+            border-left: 4px solid;
+            overflow: visible;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-tag {
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .card-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.6rem;
+            position: relative;
+        }
+
+        .btn-download {
+            flex: 1;
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-share {
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            border: 2px solid;
+            background: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-share:hover {
+            background: #f9fafb;
+        }
+
+        /* Share Popup - FIXED */
+        .share-popup {
+            position: fixed !important;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            padding: 0.6rem 0.8rem;
+            z-index: 999999 !important;
+            display: none !important;
+            border: 2px solid #0d9488;
+        }
+
+        .share-popup.active {
+            display: flex !important;
+        }
+
+        .share-icons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            cursor: pointer;
+            transition: transform 0.15s;
+            text-decoration: none;
+        }
+
+        .share-icon:hover {
+            transform: scale(1.08);
+        }
+
+        .share-icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #f9fafb;
+        }
+
+        .share-icon-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .share-icon span {
+            font-size: 0.6rem;
+            color: #6b7280;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background: white;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 1.2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-logo {
+            height: 28px;
+        }
+
+        .modal-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-headline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-pain {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .form-input {
+            padding: 0.9rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #0d9488;
+        }
+
+        .modal-submit {
+            padding: 0.9rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .modal-privacy {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-align: center;
+            margin-top: 0.8rem;
+        }
+
+        .modal-success {
+            display: none;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .modal-success.active {
+            display: block;
+        }
+
+        .modal-success-icon {
+            font-size: 3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-success h3 {
+            font-size: 1.3rem;
+            color: #059669;
+            margin-bottom: 0.4rem;
+        }
+
+        .modal-success p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .blog-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.4rem;
+        }
+
+        .blog-header p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-featured {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+
+        .blog-featured:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .blog-featured-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #0d9488, #22c55e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .blog-featured-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-tag {
+            padding: 0.3rem 0.6rem;
+            background: #0d9488;
+            color: white;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-date {
+            color: #9ca3af;
+            font-size: 0.8rem;
+        }
+
+        .blog-featured h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .blog-featured p {
+            color: #6b7280;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .blog-small-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-small-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .blog-small-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .blog-more {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .blog-more a {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.3s;
+        }
+
+        .blog-more a:hover {
+            gap: 0.6rem;
+        }
+
+        /* Ad Zones */
+        .ad-zone {
+            max-width: 1400px;
+            margin: 2.5rem auto;
+            padding: 0 1rem;
+        }
+
+        .ad-placeholder {
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            background: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .ad-728x90 {
+            height: 90px;
+        }
+
+        .ad-300x250 {
+            width: 300px;
+            height: 250px;
+            margin: 0 auto;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: #0d9488;
+            padding: 2.5rem 1rem;
+            margin: 4rem 0;
+        }
+
+        .newsletter-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.8rem;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.8rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-btn {
+            padding: 0.9rem 1.5rem;
+            background: white;
+            color: #0d9488;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .newsletter-note {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: #fef3c7;
+            padding: 1.5rem 1rem;
+            margin: 2.5rem 0;
+        }
+
+        .disclaimer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .disclaimer p {
+            color: #92400e;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .disclaimer strong {
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: #134e4a;
+            color: white;
+            padding: 3rem 1rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+        }
+
+        /* No Results */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #6b7280;
+        }
+
+        .no-results.active {
+            display: block;
+        }
+
+        .no-results h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .no-results p {
+            font-size: 0.9rem;
+        }
+
+        /* View All Modal */
+        .view-all-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2500;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .view-all-overlay.active {
+            display: flex;
+        }
+
+        .view-all-modal {
+            background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideDown 0.3s ease;
+        }
+
+        .view-all-header {
+            padding: 1.5rem;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+        }
+
+        .view-all-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .view-all-close {
+            background: #f3f4f6;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .view-all-close:hover {
+            background: #e5e7eb;
+        }
+
+        .view-all-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-center {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .slider-arrow {
+                display: none;
+            }
+
+            .view-all-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .trust-badges {
+                gap: 1rem;
+            }
+
+            .trust-badge {
+                font-size: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .guide-card {
+                min-width: 260px;
+            }
+
+            .blog-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .blog-featured-image {
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .newsletter h2 {
+                font-size: 1.4rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .ad-728x90 {
+                height: 70px;
+            }
+
+            .modal-headline {
+                font-size: 1.3rem;
+            }
+
+            .view-all-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+
+            .nav-container {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .nav-logo svg {
+                height: 36px;
+            }
+
+            .nav-right {
+                gap: 0.5rem;
+            }
+
+            .btn-tiktok span:last-child {
+                display: none;
+            }
+
+            .hero {
+                padding: 2rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+            }
+
+            .guide-section {
+                padding: 0 0.8rem;
+            }
+
+            .category-pills {
+                padding: 0 0.8rem;
+            }
+
+            .share-popup {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 240px;
+            }
+
+            .share-icons {
+                gap: 0.6rem;
+            }
+
+            .share-icon-circle {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="#000" stroke="#22c55e" stroke-width="3" filter="url(#glow)"/>
+                    <g transform="translate(50,35)">
+                        <path d="M0,20 Q-8,10 -12,0 Q-8,5 0,8 Q8,5 12,0 Q8,10 0,20 Z" fill="#22c55e"/>
+                        <path d="M-10,18 Q-15,12 -18,5 Q-12,8 -8,12 Z" fill="#10b981"/>
+                        <path d="M10,18 Q15,12 18,5 Q12,8 8,12 Z" fill="#10b981"/>
+                    </g>
+                    <text x="50" y="72" font-family="'Brush Script MT', cursive" font-size="16" fill="#fff" text-anchor="middle">Health Harbor</text>
+                    <text x="50" y="82" font-family="Arial, sans-serif" font-size="5" fill="#fff" text-anchor="middle" letter-spacing="1">HEALTH & LIFESTYLE</text>
+                </svg>
+            </div>
+            <div class="nav-center">
+                <a href="#home">Home</a>
+                <a href="#guides">Free Guides</a>
+                <a href="#blog">Blog</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://www.tiktok.com/@health.harbor1" target="_blank" class="btn-tiktok">
+                    <span>🎵</span>
+                    <span>TikTok</span>
+                </a>
+                <a href="#guides" class="btn-primary">Get Free Guide</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#guides">Free Guides</a>
+            <a href="#blog">Blog</a>
+            <a href="#about">About</a>
+            <a href="https://www.tiktok.com/@health.harbor1" target="_blank">TikTok</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-icon">⚓</div>
+        <h1>Your Free Health Guide Library</h1>
+        <p>Simple health guides written in plain English. Download free. Feel better.</p>
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchBar" placeholder="What health problem can we help with today?">
+            <span class="search-icon">🔍</span>
+        </div>
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <span>📚</span>
+                <span>33 Free Guides</span>
+            </div>
+            <div class="trust-badge">
+                <span>✨</span>
+                <span>Simple English</span>
+            </div>
+            <div class="trust-badge">
+                <span>💚</span>
+                <span>100% Free</span>
+            </div>
+            <div class="trust-badge">
+                <span>🎵</span>
+                <span>@health.harbor1</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider"></div>
+
+    <!-- Category Pills -->
+    <div class="category-pills" id="categoryPills">
+        <div class="pills-row">
+            <a href="#quick-fix" class="pill">🔥 Quick Fix</a>
+            <a href="#conditions" class="pill">🩺 Conditions</a>
+            <a href="#food" class="pill">🥗 Food & Nutrition</a>
+            <a href="#weight" class="pill">💪 Weight & Body</a>
+            <a href="#mental" class="pill">🧠 Mental Health</a>
+        </div>
+    </div>
+
+    <!-- Ad Zone 1 -->
+    <div class="ad-zone">
+        <div class="ad-placeholder ad-728x90">Ad Zone 1 - 728x90 Leaderboard</div>
+    </div>
+
+    <!-- Quick Fix Section -->
+    <section class="guide-section" id="quick-fix" data-category="quick-fix" style="color: #ef4444;">
+        <div class="section-header">
+            <div class="section-title">
+                <span class="section-dot"></span>
+                <span>🔥 Quick Fix</span>
+            </div>
+            <a class="view-all" onclick="viewAllGuides('quick-fix', '#ef4444', '🔥 Quick Fix')">View All →</a>
+        </div>
+        <div class="slider-container">
+            <div class="slider-arrow left" onclick="scrollSlider('quick-fix', -1)">‹</div>
+            <div class="slider" id="slider-quick-fix"></div>
+            <div class="slider-arrow right" onclick="scrollSlider('quick-fix', 1)">›</div>
+        </div>
+    </section>
+
+    <!-- Condition Guides Section -->
+    <section class="guide-section" id="conditions" data-category="conditions" style="color: #3b82f6;">
+        <div class="section-header">
+            <div class="section-title">
+                <span class="section-dot"></span>
+                <span>🩺 Condition Guides</span>
+            </div>
+            <a class="view-all" onclick="viewAllGuides('conditions', '#3b82f6', '🩺 Condition Guides')">View All →</a>
+        </div>
+        <div class="slider-container">
+            <div class="slider-arrow left" onclick="scrollSlider('conditions', -1)">‹</div>
+            <div class="slider" id="slider-conditions"></div>
+            <div class="slider-arrow right" onclick="scrollSlider('conditions', 1)">›</div>
+        </div>
+    </section>
+
+    <!-- Food & Nutrition Section -->
+    <section class="guide-section" id="food" data-category="food" style="color: #22c55e;">
+        <div class="section-header">
+            <div class="section-title">
+                <span class="section-dot"></span>
+                <span>🥗 Food & Nutrition</span>
+            </div>
+            <a class="view-all" onclick="viewAllGuides('food', '#22c55e', '🥗 Food & Nutrition')">View All →</a>
+        </div>
+        <div class="slider-container">
+            <div class="slider-arrow left" onclick="scrollSlider('food', -1)">‹</div>
+            <div class="slider" id="slider-food"></div>
+            <div class="slider-arrow right" onclick="scrollSlider('food', 1)">›</div>
+        </div>
+    </section>
+
+    <!-- Weight & Body Section -->
+    <section class="guide-section" id="weight" data-category="weight" style="color: #a855f7;">
+        <div class="section-header">
+            <div class="section-title">
+                <span class="section-dot"></span>
+                <span>💪 Weight & Body</span>
+            </div>
+            <a class="view-all" onclick="viewAllGuides('weight', '#a855f7', '💪 Weight & Body')">View All →</a>
+        </div>
+        <div class="slider-container">
+            <div class="slider-arrow left" onclick="scrollSlider('weight', -1)">‹</div>
+            <div class="slider" id="slider-weight"></div>
+            <div class="slider-arrow right" onclick="scrollSlider('weight', 1)">›</div>
+        </div>
+    </section>
+
+    <!-- Mental Health Section -->
+    <section class="guide-section" id="mental" data-category="mental" style="color: #6366f1;">
+        <div class="section-header">
+            <div class="section-title">
+                <span class="section-dot"></span>
+                <span>🧠 Mental Health</span>
+            </div>
+            <a class="view-all" onclick="viewAllGuides('mental', '#6366f1', '🧠 Mental Health')">View All →</a>
+        </div>
+        <div class="slider-container">
+            <div class="slider-arrow left" onclick="scrollSlider('mental', -1)">‹</div>
+            <div class="slider" id="slider-mental"></div>
+            <div class="slider-arrow right" onclick="scrollSlider('mental', 1)">›</div>
+        </div>
+    </section>
+
+    <!-- No Results Message -->
+    <div class="no-results" id="noResults">
+        <h3>No guides found</h3>
+        <p>Try different keywords or browse our categories</p>
+    </div>
+
+    <!-- Ad Zone 2 -->
+    <div class="ad-zone">
+        <div class="ad-placeholder ad-728x90">Ad Zone 2 - 728x90 In-Content</div>
+    </div>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="blog-header">
+            <h2>Health Harbor Blog</h2>
+            <p>New articles every week</p>
+        </div>
+        <div class="blog-grid">
+            <article class="blog-featured">
+                <div class="blog-featured-image">🩸</div>
+                <div class="blog-featured-content">
+                    <div class="blog-meta">
+                        <span class="blog-tag">DIABETES</span>
+                        <span class="blog-date">5 min read · March 2025</span>
+                    </div>
+                    <h3>7 Early Signs Your Blood Sugar Is Too High</h3>
+                    <p>That afternoon fatigue you brush off, the constant thirst you ignore — your body has been trying to tell you something.</p>
+                </div>
+            </article>
+            <div class="blog-sidebar">
+                <article class="blog-small-card">
+                    <div class="blog-meta">
+                        <span class="blog-tag" style="background: #3b82f6;">BLOOD PRESSURE</span>
+                        <span class="blog-date">4 min read</span>
+                    </div>
+                    <h4>Why Blood Pressure Spikes in the Evening</h4>
+                </article>
+                <article class="blog-small-card">
+                    <div class="blog-meta">
+                        <span class="blog-tag" style="background: #22c55e;">GUT HEALTH</span>
+                        <span class="blog-date">6 min read</span>
+                    </div>
+                    <h4>8 Signs Your Gut Needs Help</h4>
+                </article>
+                <article class="blog-small-card">
+                    <div class="blog-meta">
+                        <span class="blog-tag" style="background: #6366f1;">MENTAL HEALTH</span>
+                        <span class="blog-date">5 min read</span>
+                    </div>
+                    <h4>Why You Feel Anxious For No Reason</h4>
+                </article>
+                <div class="ad-placeholder ad-300x250" style="margin-top: 1rem;">Ad Zone 3 - 300x250</div>
+            </div>
+        </div>
+        <div class="blog-more">
+            <a href="#blog">Read More Articles →</a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Get Weekly Health Tips</h2>
+            <p>Join thousands getting simple health advice every week</p>
+            <form class="newsletter-form" onsubmit="return false;">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Join Free</button>
+            </form>
+            <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Medical Disclaimer -->
+    <section class="disclaimer">
+        <div class="disclaimer-content">
+            <p><strong>⚠️ Medical Disclaimer:</strong> The information on this website is for educational purposes only. Always consult a qualified healthcare provider before making changes to your diet, medications, or health routine. This is not medical advice.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>⚓ Health Harbor</h3>
+                <p>Your trusted source for simple, science-backed health information. We make health easy to understand and free to access.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#guides">Free Guides</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#quick-fix">Quick Fix</a></li>
+                    <li><a href="#conditions">Condition Guides</a></li>
+                    <li><a href="#food">Food & Nutrition</a></li>
+                    <li><a href="#weight">Weight & Body</a></li>
+                    <li><a href="#mental">Mental Health</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.tiktok.com/@health.harbor1" target="_blank">TikTok @health.harbor1</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Health Harbor. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Disclaimer</a></p>
+        </div>
+    </footer>
+
+    <!-- Download Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header" id="modalHeader">
+                <svg class="modal-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#000" stroke="#22c55e" stroke-width="3"/>
+                    <g transform="translate(50,35)">
+                        <path d="M0,20 Q-8,10 -12,0 Q-8,5 0,8 Q8,5 12,0 Q8,10 0,20 Z" fill="#22c55e"/>
+                        <path d="M-10,18 Q-15,12 -18,5 Q-12,8 -8,12 Z" fill="#10b981"/>
+                        <path d="M10,18 Q15,12 18,5 Q12,8 8,12 Z" fill="#10b981"/>
+                    </g>
+                    <text x="50" y="72" font-family="'Brush Script MT', cursive" font-size="16" fill="#fff" text-anchor="middle">Health Harbor</text>
+                </svg>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <h2 class="modal-headline" id="modalHeadline"></h2>
+                <p class="modal-pain" id="modalPain"></p>
+                <form class="modal-form" id="modalForm" onsubmit="return handleSubmit(event);">
+                    <input type="text" class="form-input" placeholder="Your First Name" required>
+                    <input type="email" class="form-input" placeholder="Your Email Address" required>
+                    <button type="submit" class="modal-submit" id="modalSubmit"></button>
+                    <p class="modal-privacy">🔒 We respect your privacy. No spam, ever.</p>
+                </form>
+            </div>
+            <div class="modal-success" id="modalSuccess">
+                <div class="modal-success-icon">💚</div>
+                <h3>Check Your Inbox!</h3>
+                <p id="successMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- View All Modal -->
+    <div class="view-all-overlay" id="viewAllOverlay">
+        <div class="view-all-modal">
+            <div class="view-all-header" id="viewAllHeader">
+                <div class="view-all-title" id="viewAllTitle"></div>
+                <button class="view-all-close" onclick="closeViewAll()">×</button>
+            </div>
+            <div class="view-all-grid" id="viewAllGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        // All 33 guides data
+        const guides = [
+            {id: 1, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'How To Stop Coughing Fast', desc: 'Because lying awake coughing at 3am when everyone\'s asleep is lonely.', headline: 'Still Coughing at 3am?', pain: 'That raw, exhausted feeling when everyone else is asleep and you can\'t stop — we made this for that exact moment.', cta: 'Send Me the Cough Relief Guide 💚'},
+            {id: 2, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'How To Reduce Bloating in 24 Hours', desc: 'Because feeling like a balloon after every meal is stealing your confidence.', headline: 'Bloated After Every Meal?', pain: 'Feeling like a balloon in your own body is embarrassing and exhausting. This guide was made to give you your comfort back.', cta: 'Yes, Help Me Stop Bloating 💚'},
+            {id: 3, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'Headache Relief Without Strong Painkillers', desc: 'Because you deserve to live your day without a throbbing head.', headline: 'Head Pounding Right Now?', pain: 'A throbbing headache steals your entire day. You deserve relief that doesn\'t mean more pills.', cta: 'Get My Headache Relief Guide 💚'},
+            {id: 4, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'How To Sleep Faster Tonight', desc: 'Because another night staring at the ceiling is one night too many.', headline: 'Still Awake at 2am?', pain: 'Staring at the ceiling while the world sleeps is one of the loneliest feelings. Tonight can be different.', cta: 'Help Me Sleep Tonight 💚'},
+            {id: 5, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'How To Relieve Constipation Quickly', desc: 'Because the discomfort is real and you need real relief now.', headline: 'Uncomfortable and Stuck?', pain: 'Constipation is more than just inconvenient — the bloating and discomfort is real. Fast relief is possible.', cta: 'Send Me the Relief Guide 💚'},
+            {id: 6, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'How To Get Rid of Sore Throat Fast', desc: 'Because a burning throat makes even swallowing feel like a punishment.', headline: 'Every Swallow Hurts?', pain: 'A raw, burning sore throat turns even drinking water into something you dread. Let\'s fix that.', cta: 'Get My Sore Throat Guide 💚'},
+            {id: 7, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'Acid Reflux Relief Guide', desc: 'Because the burning in your chest after every meal shouldn\'t be your normal.', headline: 'Burning After Every Meal?', pain: 'You\'ve stopped enjoying food because of what comes after. The burn doesn\'t have to be your normal.', cta: 'Stop the Burn — Send My Guide 💚'},
+            {id: 8, category: 'quick-fix', emoji: '🔥', color: '#ef4444', title: 'How To Reduce Fever Naturally', desc: 'Because watching your temperature rise feeling helpless is frightening.', headline: 'Temperature Rising?', pain: 'Watching a fever climb while feeling helpless is frightening. This guide helps you act with calm and confidence.', cta: 'Send Me the Fever Guide 💚'},
+            {id: 9, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'Beginner\'s Guide to Type 2 Diabetes', desc: 'Because a new diagnosis is scary and you deserve plain answers.', headline: 'Just Diagnosed With Diabetes?', pain: 'A diabetes diagnosis is overwhelming. You deserve answers in plain language, not medical textbooks. Start here.', cta: 'I Need This Guide 💚'},
+            {id: 10, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'High Blood Pressure Survival Guide', desc: 'Because worrying about your heart every single day is no way to live.', headline: 'Blood Pressure Numbers Worrying You?', pain: 'Checking your BP and seeing a high number while your heart sinks — you deserve tools to take back control.', cta: 'Send My BP Survival Guide 💚'},
+            {id: 11, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'Understanding PCOS (Simple Guide)', desc: 'Because your body isn\'t betraying you — it just needs understanding.', headline: 'Feeling Like Your Body Is Fighting You?', pain: 'PCOS makes you feel betrayed by your own body. It\'s not betrayal — it\'s a signal. And signals can be answered.', cta: 'Help Me Understand PCOS 💚'},
+            {id: 12, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'Fatty Liver Recovery Guide', desc: 'Because finding out your liver needs help doesn\'t mean it\'s too late.', headline: 'Worried About Your Liver?', pain: 'Finding out your liver needs help is scary. But your liver is the most forgiving organ you have — it can heal.', cta: 'Send My Liver Recovery Guide 💚'},
+            {id: 13, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'Kidney Health Starter Plan', desc: 'Because your kidneys work hard for you — it\'s time to support them.', headline: 'Want to Protect Your Kidneys?', pain: 'Your kidneys work silently every day without complaint. This is your chance to give back to them.', cta: 'Send My Kidney Health Guide 💚'},
+            {id: 14, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'Managing Anxiety Naturally', desc: 'Because anxiety is lying to you that you\'re in danger.', headline: 'Anxiety Stealing Your Peace?', pain: 'When your heart races for no reason and your mind won\'t quiet — you deserve real, natural tools to find peace.', cta: 'Help Me Calm My Anxiety 💚'},
+            {id: 15, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'Hormone Balance for Women', desc: 'Because mood swings and fatigue are not just \'being a woman.\'', headline: 'Hormones Feeling Out of Control?', pain: 'Mood swings, fatigue, weight changes — these aren\'t \'just being you.\' Your hormones are asking for help.', cta: 'Fix My Hormones Naturally 💚'},
+            {id: 16, category: 'conditions', emoji: '🩺', color: '#3b82f6', title: 'Gut Health Repair Guide', desc: 'Because when your gut hurts, your whole life hurts.', headline: 'Is Your Gut Ruining Your Life?', pain: 'When your gut hurts, everything hurts. Your energy, your skin, your mood — it all starts here.', cta: 'Heal My Gut — Send Guide 💚'},
+            {id: 17, category: 'food', emoji: '🥗', color: '#22c55e', title: '50 Foods That Lower Blood Sugar', desc: 'Because eating with diabetes shouldn\'t feel like a minefield.', headline: 'Confused About What to Eat?', pain: 'Eating with diabetes shouldn\'t feel like a minefield. 50 foods that actively fight back — yours free.', cta: 'Send My Blood Sugar Food List 💚'},
+            {id: 18, category: 'food', emoji: '🥗', color: '#22c55e', title: 'Best Fruits for Diabetics (Printable)', desc: 'Because you miss eating fruit freely — this guide gives that joy back.', headline: 'Missing Fruit in Your Life?', pain: 'Being told to avoid fruit is heartbreaking. This guide gives you the joy of eating fruit — safely.', cta: 'Show Me the Safe Fruits 💚'},
+            {id: 19, category: 'food', emoji: '🥗', color: '#22c55e', title: '7-Day Kidney Friendly Meal Plan', desc: 'Because planning kidney-safe meals feels impossible without help.', headline: 'Unsure What\'s Safe for Your Kidneys?', pain: 'Meal planning for kidney health feels impossible without guidance. Here\'s your full week, done for you.', cta: 'Send My Kidney Meal Plan 💚'},
+            {id: 20, category: 'food', emoji: '🥗', color: '#22c55e', title: 'Anti-Inflammatory Food List', desc: 'Because chronic pain and stiffness can be fought with your fork.', headline: 'Tired of Chronic Pain and Inflammation?', pain: 'Stiffness, swelling, and constant aching don\'t have to be permanent. Your fork is more powerful than you know.', cta: 'Send My Anti-Inflammatory List 💚'},
+            {id: 21, category: 'food', emoji: '🥗', color: '#22c55e', title: 'Healthy Grocery List for Beginners', desc: 'Because walking in without a plan leads to the same unhealthy choices.', headline: 'Leaving Stores With the Wrong Food?', pain: 'Without a real plan, healthy eating stays a good intention. This list turns intention into action.', cta: 'Send My Grocery List 💚'},
+            {id: 22, category: 'food', emoji: '🥗', color: '#22c55e', title: 'Foods That Reduce Belly Fat', desc: 'Because belly fat responds powerfully to what you eat.', headline: 'Tried Everything for Belly Fat?', pain: 'Stubborn belly fat isn\'t about willpower — it\'s about hormones and inflammation. Food fights it from within.', cta: 'Show Me What to Eat 💚'},
+            {id: 23, category: 'food', emoji: '🥗', color: '#22c55e', title: 'What To Eat When You Have Acid Reflux', desc: 'Because you shouldn\'t dread every meal just to avoid the burn.', headline: 'Dreading Every Meal?', pain: 'When acid reflux makes you fear your own plate, something has to change. Here\'s what\'s safe — and what\'s not.', cta: 'Send My Acid Reflux Food Guide 💚'},
+            {id: 24, category: 'weight', emoji: '💪', color: '#a855f7', title: '14-Day Belly Fat Reset Plan', desc: 'Because you\'re not looking for perfection — just an honest start.', headline: 'Ready for a Gentle Reset?', pain: 'Not a crash diet. Not a punishment. Just 14 honest days of small changes that actually add up.', cta: 'Start My 14-Day Reset 💚'},
+            {id: 25, category: 'weight', emoji: '💪', color: '#a855f7', title: 'Beginner Home Workout Plan (No Equipment)', desc: 'Because a gym membership shouldn\'t be the price of a healthier body.', headline: 'Want to Get Fit Without a Gym?', pain: 'Your living room is all you need. No equipment, no membership, no judgment — just your body and the will to start.', cta: 'Send My Home Workout Plan 💚'},
+            {id: 26, category: 'weight', emoji: '💪', color: '#a855f7', title: 'Intermittent Fasting Guide for Beginners', desc: 'Because you\'ve heard about it everywhere and deserve a simple explanation.', headline: 'Curious About Intermittent Fasting?', pain: 'You\'ve heard about it everywhere but nobody explained it simply and honestly. Until now.', cta: 'Explain IF to Me Simply 💚'},
+            {id: 27, category: 'weight', emoji: '💪', color: '#a855f7', title: 'Natural Metabolism Boost Guide', desc: 'Because your metabolism isn\'t broken — just sleeping.', headline: 'Metabolism Feeling Like It\'s Asleep?', pain: 'Your metabolism isn\'t broken — it\'s just been given the wrong signals. This guide teaches it to wake back up.', cta: 'Wake Up My Metabolism 💚'},
+            {id: 28, category: 'weight', emoji: '💪', color: '#a855f7', title: 'How To Lose Weight Without Starving', desc: 'Because your hunger is real and weight loss shouldn\'t mean suffering.', headline: 'Tired of Diets That Make You Miserable?', pain: 'Your hunger is real. Your cravings are valid. You are not weak. Weight loss shouldn\'t mean suffering.', cta: 'Show Me a Kinder Way 💚'},
+            {id: 29, category: 'mental', emoji: '🧠', color: '#6366f1', title: 'How To Calm Anxiety Naturally', desc: 'Because anxiety is lying to you that you\'re in danger.', headline: 'Can\'t Turn Your Anxiety Off?', pain: 'Anxiety is lying to you that danger is everywhere. You deserve tools to silence it — without medication.', cta: 'Give Me Anxiety Relief Tools 💚'},
+            {id: 30, category: 'mental', emoji: '🧠', color: '#6366f1', title: 'Overthinking Detox Guide', desc: 'Because your mind was built to solve problems, not torture you.', headline: 'Mind Racing at Night?', pain: 'Replaying conversations. Worrying about things that haven\'t happened. Your brain deserves permission to rest.', cta: 'Help Me Stop Overthinking 💚'},
+            {id: 31, category: 'mental', emoji: '🧠', color: '#6366f1', title: 'Sleep Reset Plan', desc: 'Because waking up groggy every day is slowly draining your life.', headline: 'Waking Up More Tired Than When You Slept?', pain: 'If every morning feels like dragging yourself out of fog, something is broken in your sleep. Let\'s fix it.', cta: 'Reset My Sleep — Send Guide 💚'},
+            {id: 32, category: 'mental', emoji: '🧠', color: '#6366f1', title: 'Daily Stress Relief Routine', desc: 'Because you carry everything — you deserve 5 minutes just for you.', headline: 'Running on Empty Every Day?', pain: 'You carry everything for everyone. You\'ve forgotten what it feels like to just breathe. This is your 5 minutes.', cta: 'Give Me 5 Minutes for Myself 💚'},
+            {id: 33, category: 'mental', emoji: '🧠', color: '#6366f1', title: '30-Day Mental Reset Plan', desc: 'Because you don\'t need a crisis to deserve better mental health.', headline: 'Ready for a Real Mental Health Reset?', pain: 'You don\'t need a crisis to deserve better mental health. 30 days. One small step. Real transformation.', cta: 'Start My 30-Day Reset 💚'}
+        ];
+
+        let currentGuide = null;
+        let activeSharePopup = null;
+
+        // Render all guides
+        function renderGuides() {
+            const categories = {
+                'quick-fix': document.getElementById('slider-quick-fix'),
+                'conditions': document.getElementById('slider-conditions'),
+                'food': document.getElementById('slider-food'),
+                'weight': document.getElementById('slider-weight'),
+                'mental': document.getElementById('slider-mental')
+            };
+
+            guides.forEach(guide => {
+                const card = createGuideCard(guide);
+                categories[guide.category].appendChild(card);
+            });
+        }
+
+        // Create guide card
+        function createGuideCard(guide) {
+            const card = document.createElement('div');
+            card.className = 'guide-card';
+            card.id = `guide-${guide.id}`;
+            card.style.borderLeftColor = guide.color;
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <span class="card-tag" style="background: ${guide.color};">${guide.emoji} ${getCategoryName(guide.category)}</span>
+                    <div class="card-icon" style="background: ${guide.color}20; color: ${guide.color};">📄</div>
+                </div>
+                <h3 class="card-title">${guide.title}</h3>
+                <p class="card-desc">${guide.desc}</p>
+                <div class="card-actions">
+                    <button class="btn-download" style="background: ${guide.color};" onclick="openModal(${guide.id})">⬇ Get Free Guide</button>
+                    <button class="btn-share" style="border-color: ${guide.color}; color: ${guide.color};" onclick="toggleShare(event, ${guide.id})">📤 Share</button>
+                </div>
+                <div class="share-popup" id="share-${guide.id}" onclick="event.stopPropagation()">
+                    <div class="share-icons">
+                        <a class="share-icon" onclick="shareWhatsApp(${guide.id}); event.stopPropagation();">
+                            <div class="share-icon-circle"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" style="background:#25D366;padding:4px"></div>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a class="share-icon" onclick="shareFacebook(${guide.id}); event.stopPropagation();">
+                            <div class="share-icon-circle"><img src="https://www.genspark.ai/api/files/s/WopqjMik" alt="Facebook"></div>
+                            <span>Facebook</span>
+                        </a>
+                        <a class="share-icon" onclick="shareTwitter(${guide.id}); event.stopPropagation();">
+                            <div class="share-icon-circle"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X" style="background:#000;padding:6px"></div>
+                            <span>X</span>
+                        </a>
+                        <a class="share-icon" onclick="copyLink(${guide.id}); event.stopPropagation();">
+                            <div class="share-icon-circle" id="copy-icon-${guide.id}" style="background:#6b7280;color:white;font-size:1.1rem">📋</div>
+                            <span id="copy-text-${guide.id}">Copy</span>
+                        </a>
+                        <a class="share-icon" onclick="shareTikTok(); event.stopPropagation();">
+                            <div class="share-icon-circle"><img src="https://www.genspark.ai/api/files/s/R1ftrFBR" alt="TikTok"></div>
+                            <span>TikTok</span>
+                        </a>
+                        <a class="share-icon" onclick="shareYouTube(${guide.id}); event.stopPropagation();">
+                            <div class="share-icon-circle"><img src="https://www.genspark.ai/api/files/s/Npeu7muf" alt="YouTube"></div>
+                            <span>YouTube</span>
+                        </a>
+                        <a class="share-icon" onclick="shareInstagram(${guide.id}); event.stopPropagation();">
+                            <div class="share-icon-circle"><img src="https://www.genspark.ai/api/files/s/PSZ4eDrz" alt="Instagram"></div>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                'quick-fix': 'Quick Fix',
+                'conditions': 'Condition',
+                'food': 'Food & Nutrition',
+                'weight': 'Weight & Body',
+                'mental': 'Mental Health'
+            };
+            return names[category];
+        }
+
+        // Toggle share popup - FIXED
+        function toggleShare(event, guideId) {
+            event.stopPropagation();
+            event.preventDefault();
+            
+            const popup = document.getElementById(`share-${guideId}`);
+            const button = event.currentTarget;
+            
+            if (!popup) return;
+            
+            // Close any other open popup
+            if (activeSharePopup && activeSharePopup !== popup) {
+                activeSharePopup.classList.remove('active');
+            }
+            
+            const isActive = popup.classList.contains('active');
+            if (isActive) {
+                popup.classList.remove('active');
+                activeSharePopup = null;
+            } else {
+                // Position popup ABOVE button instantly
+                const rect = button.getBoundingClientRect();
+                popup.style.position = 'fixed';
+                popup.style.bottom = (window.innerHeight - rect.top + 10) + 'px';
+                popup.style.left = Math.max(10, rect.left - 80) + 'px';
+                popup.style.right = 'auto';
+                popup.classList.add('active');
+                activeSharePopup = popup;
+            }
+        }
+
+        // Close share popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (activeSharePopup) {
+                const clickedInsidePopup = activeSharePopup.contains(e.target);
+                const clickedShareButton = e.target.closest('.btn-share');
+                
+                if (!clickedInsidePopup && !clickedShareButton) {
+                    activeSharePopup.classList.remove('active');
+                    activeSharePopup = null;
+                }
+            }
+        });
+
+        // Share functions
+        function getGuideUrl(guideId) {
+            return `https://healthharbor.com/#guide-${guideId}`;
+        }
+
+        function shareWhatsApp(guideId) {
+            const guide = guides.find(g => g.id === guideId);
+            const url = getGuideUrl(guideId);
+            const text = `Check out this free health guide: ${guide.title}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+        }
+
+        function shareFacebook(guideId) {
+            const url = getGuideUrl(guideId);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareTwitter(guideId) {
+            const guide = guides.find(g => g.id === guideId);
+            const url = getGuideUrl(guideId);
+            const text = `Free health guide: ${guide.title}`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&via=health.harbor1`, '_blank');
+        }
+
+        function copyLink(guideId) {
+            const url = getGuideUrl(guideId);
+            navigator.clipboard.writeText(url).then(() => {
+                const icon = document.getElementById(`copy-icon-${guideId}`);
+                const text = document.getElementById(`copy-text-${guideId}`);
+                icon.textContent = '✓';
+                text.textContent = 'Copied!';
+                setTimeout(() => {
+                    icon.textContent = '📋';
+                    text.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        function shareTikTok() {
+            window.open('https://www.tiktok.com/@health.harbor1', '_blank');
+        }
+
+        function shareYouTube(guideId) {
+            const url = getGuideUrl(guideId);
+            alert('Copy this link to share on YouTube:\n\n' + url);
+        }
+
+        function shareInstagram(guideId) {
+            const url = getGuideUrl(guideId);
+            alert('Copy this link to share on Instagram:\n\n' + url);
+        }
+
+        // View All functionality
+        function viewAllGuides(category, color, title) {
+            const categoryGuides = guides.filter(g => g.category === category);
+            const overlay = document.getElementById('viewAllOverlay');
+            const titleEl = document.getElementById('viewAllTitle');
+            const grid = document.getElementById('viewAllGrid');
+            const header = document.getElementById('viewAllHeader');
+            
+            titleEl.innerHTML = title;
+            titleEl.style.color = color;
+            header.style.borderBottomColor = color;
+            
+            grid.innerHTML = '';
+            categoryGuides.forEach(guide => {
+                const card = createGuideCard(guide);
+                grid.appendChild(card);
+            });
+            
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeViewAll() {
+            document.getElementById('viewAllOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Modal functions
+        function openModal(guideId) {
+            const guide = guides.find(g => g.id === guideId);
+            currentGuide = guide;
+            
+            document.getElementById('modalHeader').style.background = guide.color;
+            document.getElementById('modalHeadline').textContent = guide.headline;
+            document.getElementById('modalPain').textContent = guide.pain;
+            document.getElementById('modalSubmit').textContent = guide.cta;
+            document.getElementById('modalSubmit').style.background = guide.color;
+            
+            document.getElementById('modalBody').style.display = 'block';
+            document.getElementById('modalSuccess').classList.remove('active');
+            document.getElementById('modalForm').reset();
+            
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = event.target[0].value;
+            document.getElementById('successMessage').textContent = `Your "${currentGuide.title}" is on its way! Check your inbox. 💚`;
+            document.getElementById('modalBody').style.display = 'none';
+            document.getElementById('modalSuccess').classList.add('active');
+            
+            console.log('Form submitted for guide:', currentGuide.id, 'Name:', name, 'Email:', event.target[1].value);
+            
+            setTimeout(() => {
+                closeModal();
+            }, 3000);
+            
+            return false;
+        }
+
+        // Close modals on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeViewAll();
+            }
+        });
+
+        // Close modals on overlay click
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.getElementById('viewAllOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeViewAll();
+            }
+        });
+
+        // Slider functions
+        function scrollSlider(category, direction) {
+            const slider = document.getElementById(`slider-${category}`);
+            const cardWidth = slider.querySelector('.guide-card').offsetWidth + 16;
+            slider.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+        }
+
+        // Update slider arrows visibility
+        function updateSliderArrows() {
+            const categories = ['quick-fix', 'conditions', 'food', 'weight', 'mental'];
+            categories.forEach(category => {
+                const slider = document.getElementById(`slider-${category}`);
+                const leftArrow = slider.parentElement.querySelector('.slider-arrow.left');
+                const rightArrow = slider.parentElement.querySelector('.slider-arrow.right');
+                
+                if (slider.scrollLeft <= 0) {
+                    leftArrow.classList.add('hidden');
+                } else {
+                    leftArrow.classList.remove('hidden');
+                }
+                
+                if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth - 10) {
+                    rightArrow.classList.add('hidden');
+                } else {
+                    rightArrow.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchBar').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (query === '') {
+                document.querySelectorAll('.guide-section').forEach(section => {
+                    section.style.display = 'block';
+                });
+                document.querySelectorAll('.guide-card').forEach(card => {
+                    card.style.display = 'block';
+                });
+                document.getElementById('noResults').classList.remove('active');
+                return;
+            }
+            
+            let hasResults = false;
+            
+            guides.forEach(guide => {
+                const card = document.getElementById(`guide-${guide.id}`);
+                const matchesSearch = guide.title.toLowerCase().includes(query) || 
+                                    guide.desc.toLowerCase().includes(query);
+                
+                if (matchesSearch) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.querySelectorAll('.guide-section').forEach(section => {
+                const visibleCards = section.querySelectorAll('.guide-card[style*="display: block"]');
+                if (visibleCards.length === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+            
+            if (!hasResults) {
+                document.getElementById('noResults').classList.add('active');
+            } else {
+                document.getElementById('noResults').classList.remove('active');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger menu
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (this.classList.contains('pill')) {
+                            document.getElementById('searchBar').value = '';
+                            document.querySelectorAll('.guide-section').forEach(section => {
+                                section.style.display = 'block';
+                            });
+                            document.querySelectorAll('.guide-card').forEach(card => {
+                                card.style.display = 'block';
+                            });
+                            document.getElementById('noResults').classList.remove('active');
+                        }
+                    }
+                }
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+
+        // Check for hash in URL on page load
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#guide-')) {
+                const guideId = parseInt(hash.replace('#guide-', ''));
+                const card = document.getElementById(`guide-${guideId}`);
+                if (card) {
+                    setTimeout(() => {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        setTimeout(() => {
+                            openModal(guideId);
+                        }, 600);
+                    }, 500);
+                }
+            }
+        });
+
+        // Initialize
+        renderGuides();
+        updateSliderArrows();
+
+        // Update arrows on scroll
+        document.querySelectorAll('.slider').forEach(slider => {
+            slider.addEventListener('scroll', updateSliderArrows);
+        });
+
+        // Update arrows on window resize
+        window.addEventListener('resize', updateSliderArrows);
+    </script>
+</body>
+</html>
